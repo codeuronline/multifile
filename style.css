@@ -1,0 +1,139 @@
+body{margin:0px;
+    padding: 0;;
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+
+}
+input[type=file]{display:none;}
+.container{
+    
+    border:1px solid blueviolet;
+    padding: 0;
+    margin:0;
+    width:600px;
+    height:600px;
+    display: grid;
+    flex-wrap: nowrap;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "i1 i1 i2"
+    "i1 i1 i3"
+    "i4 i5 i6";
+    }
+.image0{
+        grid-area: i0;
+        padding:0px;
+        margin:0px;
+        display:flex;
+        width:600px;
+        height:200px;
+        background: olivedrab;
+        
+        }
+.image1{
+    grid-area: i1;
+    padding:0px;
+    margin:0px;
+    display:flex;
+    width:400px;
+    height:400px;
+    background: blueviolet;
+    border: 1px  solid blueviolet;
+
+}
+.image1 :hover{
+    width: 380px;
+    height: 380px;
+    border: 2px  solid blueviolet;
+}
+
+.image2{
+    grid-area: i2;
+    padding:0px;
+    margin:0px;
+    width:200px;
+    height:200px;
+    background: yellowgreen;
+    border: 1px  solid yellowgreen
+}
+.image2 :hover{
+    width: 190px;
+    height: 190px;
+    border: 2px  solid yellowgreen;
+}
+.image3{
+    grid-area: i3;
+    padding:0px;
+    margin:0px;
+    width:200px;
+    height:200px;
+    background: goldenrod;
+    border: 1px  solid goldenrod;
+
+}
+
+.image3 :hover{
+    width: 190px;
+    height: 190px;
+    border: 2px  solid goldenrod;
+}
+
+.image4{
+    grid-area:i4;
+    padding:0px;
+    margin:0px;
+    width:200px;
+    height:200px;
+    background: brown;
+    border: 1px  solid brown;
+    
+}
+
+.image4 :hover{
+    width: 190px;
+    height: 190px;
+    border: 2px  solid brown;
+}
+
+.image5{
+    grid-area: i5;
+    padding:0px;
+    margin:0px;
+    width:200px;
+    height:200px;
+    background:gray;
+    border: 1px  solid gray;
+    justify-content: center;
+    align-items: center;
+}
+.image5 :hover{
+    width: 190px;
+    height: 190px;
+    border: 2px  solid gray;
+}
+.image6{
+    grid-area: i6;
+    padding:0px;
+    margin:0px;
+    width:200px;
+    height:200px;
+    background: rgb(50, 205, 159);
+    border: 1px solid rgb(50, 205, 159);
+}
+.image6 :hover{
+    width: 190px;
+    height: 190px;
+    border: 2px  solid rgb(50, 205, 159);
+}
+.image7{
+    grid-area: 70;
+    padding:0px;
+    margin:0px;
+    display:flex;
+    width:600px;
+    height:200px;
+    background: violet;
+    }
