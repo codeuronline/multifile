@@ -45,29 +45,30 @@
             <div class="image5">
                 <label for="image[4]">
                     <input type="file" onChange="handeFiles(files,image[4])" name="image[4]" id="image[4]">
-                    <span id="showimage4">
+                    <span id="preview4">
                         <img width="200px" height="200px" src="vide.jpg" alt="">
                     </span>
             </div>
-            <div class="image6">
+            <!--div class="image6">
                 <label for="image[5]">
                     <input type="file" onChange="handeFiles(files,image[5])" name="image[5]" id="image[5]">
-                    <span id="showimage5">
+                    <span id="image[5]">
                         <img width="200px" height="200px" src="vide.jpg" alt="">
                     </span>
-            </div>
+            </div-->
         </div>
         <button type="submit">Envoyer</button>
         <button type="reset">Reset</button>
     </form>
 </body>
-<script>
+
+<script type="text/javascript">
 function handleFiles(files, valeur) {
     var imageType = /^image\//;
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
         if (!imageType.test(file.type)) {
-            alert("veuillez sélectionner une image");
+            alert("veuillez sélectionner une image ");
         } else {
             if (i == 0) {
                 switch (valeur) {
@@ -87,7 +88,6 @@ function handleFiles(files, valeur) {
                         preview5.innerHTML = '';
                         break;
                 }
-
             }
             var img = document.createElement("img");
             img.classList.add("obj");
@@ -109,18 +109,17 @@ function handleFiles(files, valeur) {
                     preview5.appendChild(img);
                     break;
             }
-
             var reader = new FileReader();
             reader.onload = (function(aImg) {
-                return function(e) {
+                return
+
+                function(e) {
                     aImg.src = e.target.result;
                 };
             })(img);
-
             reader.readAsDataURL(file);
         }
-
     }
 </script>
 
-</html> <?php ?>
+</html>
