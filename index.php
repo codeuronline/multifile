@@ -45,17 +45,17 @@
             <div class="image5">
                 <label for="image[4]">
                     <input type="file" onChange="handeFiles(files,image[4])" name="image[4]" id="image[4]">
-                    <span id="preview4">
+                    <span id="image[4]">
                         <img width="200px" height="200px" src="vide.jpg" alt="">
                     </span>
             </div>
-            <!--div class="image6">
+            <div class="image6">
                 <label for="image[5]">
                     <input type="file" onChange="handeFiles(files,image[5])" name="image[5]" id="image[5]">
                     <span id="image[5]">
                         <img width="200px" height="200px" src="vide.jpg" alt="">
                     </span>
-            </div-->
+            </div>
         </div>
         <button type="submit">Envoyer</button>
         <button type="reset">Reset</button>
@@ -113,13 +113,14 @@ function handleFiles(files, valeur) {
             reader.onload = (function(aImg) {
                 return
 
-                function(e) {
+                function e() {
                     aImg.src = e.target.result;
                 };
             })(img);
             reader.readAsDataURL(file);
         }
     }
+}
 </script>
 
 </html>
