@@ -23,13 +23,13 @@
     <form action="POST" enctype="multipart/form-data">
         <div class="container">
             <div class="image0">
-                <label for="image[7]"><i class="bi bi-house-fill"></i></i>
+                <label for="image7"><i class="bi bi-house-fill"></i></i>
                 </label>
                 <input type="text" height="20" size="40" name="Titre" id="" placeholder="Le nom du logement ">
             </div>
             <div class="image1">
                 <label for="image1">
-                    <input type="file" onChange="handeFiles(files,image1)" name="image[0]" id="image1" multiple>
+                    <input type="file" onChange="handleFiles(files,1)" name="image1" id="image1" multiple>
                     <span id="preview1">
                         <img width="400px" height="400px" src="vide.jpg" alt="">
                     </span>
@@ -37,35 +37,35 @@
             </div>
             <div class="image2">
                 <label for="image2">
-                    <input type="file" onChange="handeFiles(files,image2)" name="image2" id="image2">
+                    <input type="file" onChange="handleFiles(files,2)" name="image2" id="image2">
                     <span id="preview2">
                         <img width=" 200px" height="200px" src="vide.jpg" alt="">
                     </span>
             </div>
             <div class="image3">
                 <label for="image3">
-                    <input type="file" onChange="handeFiles(files,image3)" name="image3" id="image3">
+                    <input type="file" onChange="handleFiles(files,3)" name="image3" id="image3">
                     <span id="preview3">
                         <img width="200px" height="200px" src="vide.jpg" alt="">
                     </span>
             </div>
             <div class="image4">
                 <label for="image4">
-                    <input type="file" onChange="handeFiles(files,image4)" name="image4" id="image4">
+                    <input type="file" onChange="handleFiles(files,4)" name="image4" id="image4">
                     <span id="preview4">
                         <img width="200px" height="200px" src="vide.jpg" alt="">
                     </span>
             </div>
             <div class="image5">
                 <label for="image5">
-                    <input type="file" onChange="handeFiles(files,image5)" name="image5" id="image5">
+                    <input type="file" onChange="handleFiles(files,5)" name="image5" id="image5">
                     <span id="preview5">
                         <img width="200px" height="200px" src="vide.jpg" alt="">
                     </span>
             </div>
             <div class="image6">
                 <label for="image6">
-                    <input type="file" onChange="handeFiles(files,image6)" name="image6" id="image6">
+                    <input type="file" onChange="handleFiles(files,6)" name="image6" id="image6">
                     <span id="preview6">
                         <img width="200px" height="200px" src="vide.jpg" alt="">
                     </span>
@@ -83,14 +83,29 @@
 function handleFiles(files, valeur) {
     var imageType = /^image\//;
     for (var i = 0; i < files.length; i++) {
+        console.log("nb fichier : " + files.length);
+        console.log("fichier" + i);
         var file = files[i];
         if (!imageType.test(file.type)) {
-            alert("veuillez sélectionner une image ");
+            alert("veuillez sélectionner une image");
         } else {
             if (i == 0) {
                 switch (valeur) {
                     case 1:
                         preview1.innerHTML = '';
+                        if (files.length > 1) {
+                            for (var j = 2; j <= files.length; j++) {
+                                if (j <= 6) {
+                                    console.log("inialise preview:" + j);
+                                    (j == 2) ? preview2.innerHTML = '': null;
+                                    (j == 3) ? preview3.innerHTML = '': null;
+                                    (j == 4) ? preview4.innerHTML = '': null;
+                                    (j == 5) ? preview5.innerHTML = '': null;
+                                    (j == 6) ? preview6.innerHTML = '': null;
+                                }
+                            }
+                        }
+
                         break;
                     case 2:
                         preview2.innerHTML = '';
@@ -105,38 +120,74 @@ function handleFiles(files, valeur) {
                         preview5.innerHTML = '';
                         break;
                     case 6:
-                        preview5.innerHTML = '';
+                        preview6.innerHTML = '';
                         break;
                 }
+
             }
             var img = document.createElement("img");
             img.classList.add("obj");
-            img.file = file;
+            img.file = files[i];
             switch (valeur) {
                 case 1:
+                    console.log("chargement de preview:" + valeur)
                     preview1.appendChild(img);
+                    if (files.lenght > 1) {
+                        for (var j = 2; j <= files.length; j++) {
+                            var imgBIS = document.createElement("img");
+                            imgBIS.classList.add("obj");
+                            if (j <= 6) {
+                                switch (j) {
+
+                                    case 2:
+                                        preview2.appendChild(imgBIS);
+                                        var reader = new FileReader();
+                                        reader.onload = (function(aImg) {
+                                            return function(e) {
+                                                aImg.src = e.target.result;
+                                            };
+                                        })(img);
+                                        reader.readAsDataURL(file);
+                                        break;
+
+                                    case 3:
+                                        preview3.appendChild(imgBIS);
+                                        break;
+                                    case 4:
+                                        preview4.appendChild(imgBIS);
+                                        break;
+                                    case 5:
+                                        preview5.appendChild(imgBIS);
+                                        break;
+                                    case 6:
+                                        preview6.appendChild(imgBIS);
+                                        break;
+                                }
+
+                            }
+                        }
+                    }
                     break;
                 case 2:
-                    preview2.appendChild(img);
+                    preview[2].appendChild(img);
                     break;
                 case 3:
-                    preview3.appendChild(img);
+                    preview[3].appendChild(img);
                     break;
                 case 4:
-                    preview4.appendChild(img);
+                    preview[4].appendChild(img);
                     break;
                 case 5:
-                    preview5.appendChild(img);
+                    preview[5].appendChild(img);
                     break;
                 case 6:
-                    preview6.appendChild(img);
+                    preview[6].appendChild(img);
                     break;
             }
+
             var reader = new FileReader();
             reader.onload = (function(aImg) {
-                return
-
-                function e() {
+                return function(e) {
                     aImg.src = e.target.result;
                 };
             })(img);
