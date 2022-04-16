@@ -96,7 +96,7 @@ function handleFiles(files, valeur) {
                         if (files.length > 1) {
                             for (var j = 2; j <= files.length; j++) {
                                 if (j <= 6) {
-                                    console.log("inialise preview:" + j);
+                                    console.log("initialise preview: " + j);
                                     (j == 2) ? preview2.innerHTML = '': null;
                                     (j == 3) ? preview3.innerHTML = '': null;
                                     (j == 4) ? preview4.innerHTML = '': null;
