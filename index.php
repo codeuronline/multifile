@@ -28,51 +28,54 @@
                 <input type="text" height="20" size="40" name="Titre" id="" placeholder="Le nom du logement ">
             </div>
             <div class="image1">
-                <label for="image[0]">
-                    <input type="file" onChange="handeFiles(files,image[0])" name="image[0]" id="image[0]" multiple>
-                    <span id="showimage1">
+                <label for="image1">
+                    <input type="file" onChange="handeFiles(files,image1)" name="image[0]" id="image1" multiple>
+                    <span id="preview1">
                         <img width="400px" height="400px" src="vide.jpg" alt="">
                     </span>
                 </label>
             </div>
             <div class="image2">
-                <label for="image[1]">
-                    <input type="file" onChange="handeFiles(files,image[1])" name="image[1]" id="image[1]">
-                    <span id="image[1]">
+                <label for="image2">
+                    <input type="file" onChange="handeFiles(files,image2)" name="image2" id="image2">
+                    <span id="preview2">
                         <img width=" 200px" height="200px" src="vide.jpg" alt="">
                     </span>
             </div>
             <div class="image3">
-                <label for="image[2]">
-                    <input type="file" onChange="handeFiles(files,image[2])" name="image[2]" id="image[2]">
-                    <span id="image[2]">
+                <label for="image3">
+                    <input type="file" onChange="handeFiles(files,image3)" name="image3" id="image3">
+                    <span id="preview3">
                         <img width="200px" height="200px" src="vide.jpg" alt="">
                     </span>
             </div>
             <div class="image4">
-                <label for="image[3]">
-                    <input type="file" onChange="handeFiles(files,image[3])" name="image[3]" id="image[3]"><span
-                        id="image[3]">
+                <label for="image4">
+                    <input type="file" onChange="handeFiles(files,image4)" name="image4" id="image4">
+                    <span id="preview4">
                         <img width="200px" height="200px" src="vide.jpg" alt="">
                     </span>
             </div>
             <div class="image5">
-                <label for="image[4]">
-                    <input type="file" onChange="handeFiles(files,image[4])" name="image[4]" id="image[4]">
-                    <span id="image[4]">
+                <label for="image5">
+                    <input type="file" onChange="handeFiles(files,image5)" name="image5" id="image5">
+                    <span id="preview5">
                         <img width="200px" height="200px" src="vide.jpg" alt="">
                     </span>
             </div>
             <div class="image6">
-                <label for="image[5]">
-                    <input type="file" onChange="handeFiles(files,image[5])" name="image[5]" id="image[5]">
-                    <span id="image[5]">
+                <label for="image6">
+                    <input type="file" onChange="handeFiles(files,image6)" name="image6" id="image6">
+                    <span id="preview6">
                         <img width="200px" height="200px" src="vide.jpg" alt="">
                     </span>
             </div>
+            <div class="image7">
+                <button type="submit"><i class="fa-solid fa-toilet-paper"></i></button>
+                <button type="reset"><i class="fa-solid fa-hand-peace"></i></button>
+            </div>
         </div>
-        <button type="submit">Envoyer</button>
-        <button type="reset">Reset</button>
+
     </form>
 </body>
 
@@ -101,6 +104,9 @@ function handleFiles(files, valeur) {
                     case 5:
                         preview5.innerHTML = '';
                         break;
+                    case 6:
+                        preview5.innerHTML = '';
+                        break;
                 }
             }
             var img = document.createElement("img");
@@ -121,6 +127,9 @@ function handleFiles(files, valeur) {
                     break;
                 case 5:
                     preview5.appendChild(img);
+                    break;
+                case 6:
+                    preview6.appendChild(img);
                     break;
             }
             var reader = new FileReader();
