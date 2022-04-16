@@ -169,19 +169,19 @@ function handleFiles(files, valeur) {
                     }
                     break;
                 case 2:
-                    preview[2].appendChild(img);
+                    preview2.appendChild(img);
                     break;
                 case 3:
-                    preview[3].appendChild(img);
+                    preview3.appendChild(img);
                     break;
                 case 4:
-                    preview[4].appendChild(img);
+                    preview4.appendChild(img);
                     break;
                 case 5:
-                    preview[5].appendChild(img);
+                    preview5.appendChild(img);
                     break;
                 case 6:
-                    preview[6].appendChild(img);
+                    preview6.appendChild(img);
                     break;
             }
 
