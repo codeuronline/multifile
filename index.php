@@ -29,7 +29,7 @@
             </div>
             <div class="image1">
                 <label for="image1">
-                    <input type="file" onChange="handleFiles(files,1)" name="image1" id="image1" multiple>
+                    <input type="file" onChange="handleMultiFiles(files,1)" name="image1" id="image1" multiple>
                     <span id="preview1">
                         <img width="400px" height="400px" src="vide.jpg" alt="">
                     </span>
@@ -80,6 +80,47 @@
 </body>
 
 <script type="text/javascript">
+let nbLmit = 7;
+
+function handleMultiFiles(files) {
+    nbFile = files.length;
+    console.log(nbFile);
+    for (let j = 0; j < nbFile; j++) {
+        if (j < nbLmit) {
+            (j == 0) ? document.getElementById("preview0").innerHTML = ' I image0': null;
+            (j == 1) ? document.getElementById("preview1").innerHTML = ' I image1': null;
+            (j == 2) ? document.getElementById("preview2").innerHTML = ' I image2': null;
+            (j == 3) ? document.getElementById("preview3").innerHTML = ' I image3': null;
+            (j == 4) ? document.getElementById("preview4").innerHTML = ' I image4': null;
+            (j == 5) ? document.getElementById("preview5").innerHTML = ' I image5': null;
+            (j == 6) ? document.getElementById("preview6").innerHTML = ' I image6': null;
+        }
+
+        let img = document.createElement("img");
+        img.classList.add("obj");
+        img.file = files[j];
+        console.log(img.file);
+        if (files.length > 0) {
+            (j == 0) ? document.getElementById("preview0").appendChild(img): null;
+            (j == 1) ? document.getElementById("preview1").appendChild(img): null;
+            (j == 2) ? document.getElementById("preview2").appendChild(img): null;
+            (j == 3) ? document.getElementById("preview2").appendChild(img): null;
+            (j == 4) ? document.getElementById("preview3").appendChild(img): null;
+            (j == 5) ? document.getElementById("preview4").appendChild(img): null;
+            (j == 6) ? document.getElementById("preview5").appendChild(img): null;
+        }
+        var reader = new FileReader();
+        reader.onload = (function(aImg) {
+            return function(e) {
+                aImg.src = e.target.result;
+            };
+        })(img);
+        reader.readAsDataURL(file);
+    }
+}
+
+
+
 function handleFiles(files, valeur) {
     var imageType = /^image\//;
     for (var i = 0; i < files.length; i++) {
@@ -95,32 +136,33 @@ function handleFiles(files, valeur) {
                         preview1.innerHTML = '';
                         if (files.length > 1) {
                             for (var j = 2; j <= files.length; j++) {
-                                if (j <= 6) {
+                                console.log(j);
+                                if (j <= nbLmit) {
                                     console.log("initialise preview: " + j);
-                                    (j == 2) ? preview2.innerHTML = '': null;
-                                    (j == 3) ? preview3.innerHTML = '': null;
-                                    (j == 4) ? preview4.innerHTML = '': null;
-                                    (j == 5) ? preview5.innerHTML = '': null;
-                                    (j == 6) ? preview6.innerHTML = '': null;
+                                    (j == 2) ? preview2.innerHTML = 'image2': null;
+                                    (j == 3) ? preview3.innerHTML = 'image3': null;
+                                    (j == 4) ? preview4.innerHTML = 'image4': null;
+                                    (j == 5) ? preview5.innerHTML = 'image5': null;
+                                    (j == 6) ? preview6.innerHTML = 'image6': null;
                                 }
                             }
                         }
 
                         break;
                     case 2:
-                        preview2.innerHTML = '';
+                        preview2.innerHTML = 'unique image2';
                         break;
                     case 3:
-                        preview3.innerHTML = '';
+                        preview3.innerHTML = 'unique image3';
                         break;
                     case 4:
-                        preview4.innerHTML = '';
+                        preview4.innerHTML = 'unique image4';
                         break;
                     case 5:
-                        preview5.innerHTML = '';
+                        preview5.innerHTML = 'unique image5';
                         break;
                     case 6:
-                        preview6.innerHTML = '';
+                        preview6.innerHTML = 'unique image6';
                         break;
                 }
 
@@ -129,38 +171,67 @@ function handleFiles(files, valeur) {
             img.classList.add("obj");
             img.file = files[i];
             switch (valeur) {
-                case 1:
+                case 0:
                     console.log("chargement de preview:" + valeur)
-                    preview1.appendChild(img);
-                    if (files.lenght > 1) {
-                        for (var j = 2; j <= files.length; j++) {
-                            var imgBIS = document.createElement("img");
-                            imgBIS.classList.add("obj");
-                            if (j <= 6) {
-                                switch (j) {
 
+                    if (files.lenght > 0) {
+                        preview0.appendChild(img);
+                        for (var j = 1; j <= files.length; j++) {
+                            if (j <= nbLmit) {
+                                switch (j) {
                                     case 2:
-                                        preview2.appendChild(imgBIS);
+                                        var imgBIS = document.createElement("img");
+                                        imgBIS.classList.add("obj");
+                                        document.getElementById("preview1").appendChild(imgBIS);
                                         var reader = new FileReader();
                                         reader.onload = (function(aImg) {
                                             return function(e) {
                                                 aImg.src = e.target.result;
                                             };
-                                        })(img);
-                                        reader.readAsDataURL(file);
+                                        })(imgBIS);
+                                        reader.readAsDataURL(files[j]);
                                         break;
 
                                     case 3:
-                                        preview3.appendChild(imgBIS);
+                                        document.getElementById("preview2").appendChild(imgBIS);
+                                        var reader = new FileReader();
+                                        reader.onload = (function(aImg) {
+                                            return function(e) {
+                                                aImg.src = e.target.result;
+                                            };
+                                        })(imgBIS);
+                                        reader.readAsDataURL(files[j]);
                                         break;
+
                                     case 4:
-                                        preview4.appendChild(imgBIS);
+                                        document.getElementById("preview4").appendChild(imgBIS);
+                                        var reader = new FileReader();
+                                        reader.onload = (function(aImg) {
+                                            return function(e) {
+                                                aImg.src = e.target.result;
+                                            };
+                                        })(imgBis);
+                                        reader.readAsDataURL(file[j]);
                                         break;
                                     case 5:
-                                        preview5.appendChild(imgBIS);
+                                        document.getElementById("preview5").appendChild(imgBIS);
+                                        var reader = new FileReader();
+                                        reader.onload = (function(aImg) {
+                                            return function(e) {
+                                                aImg.src = e.target.result;
+                                            };
+                                        })(imgBIS);
+                                        reader.readAsDataURL(file[j]);
                                         break;
                                     case 6:
-                                        preview6.appendChild(imgBIS);
+                                        document.getElementById("preview6").appendChild(imgBIS);
+                                        var reader = new FileReader();
+                                        reader.onload = (function(aImg) {
+                                            return function(e) {
+                                                aImg.src = e.target.result;
+                                            };
+                                        })(imgBIS);
+                                        reader.readAsDataURL(file[j]);
                                         break;
                                 }
 
