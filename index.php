@@ -71,6 +71,14 @@
                     </span>
             </div>
             <div class="option">
+                <label for="fumeur"><i class="fa-solid fa-smoking"></i></label>
+                <input type="checkbox" name="" id="">
+                <label for="wifi"><i class="bi bi-wifi"></i></label>
+                <input type="checkbox" name="" id="">
+                <label for=""><i class="fa-solid fa-taxi"></i></label>
+                <input type="checkbox" name="" id="">
+                <label for=""></label>
+                <input type="checkbox" name="" id="">
 
             </div>
             <div class="action">
