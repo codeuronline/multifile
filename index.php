@@ -96,7 +96,7 @@ let nbLimit = 6;
 function handleFiles(files, valeur) {
     let nbFiles = files.length;
     for (var i = 0; i < nbFiles; i++) {
-        console.log("nb de fichier")
+        console.log("nb de fichier: " + nbFiles);
         var file = files[i];
         var imageType = /^image\//;
         if (!imageType.test(file.type)) {
@@ -178,6 +178,7 @@ function handleFiles(files, valeur) {
                     preview5.appendChild(img);
                     break;
             }
+            // lecture du fichier
             var reader = new FileReader();
             reader.onload = (function(aImg) {
                 return function(e) {
