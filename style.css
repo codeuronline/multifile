@@ -45,12 +45,13 @@ i{
     display: grid;
     flex-wrap: nowrap;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: 
     "i0 i0 i0"
     "i1 i1 i2"
     "i1 i1 i3"
     "i4 i5 i6"
+    "i8 i8 i8"
     "i7 i7 i7"
     }
     
@@ -67,22 +68,12 @@ i{
     font-size:20px;
     border: 1px solid olivedrab;}
 
-.image0 :hover {
-    border: 2px solid red;
-    width: 602px;
-    height: 96px;}
+/* .image0 :hover { */
+    /* border: 2px solid red; */
+    /* width: 602px; */
+    /* height: 96px;} */
         
-    .image7 {
-        grid-area: i7;
-        padding: 0px;
-        margin: 0px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 606px;
-        height: 100px;
-        border: 1px solid violet;}
-    
+       
 button {
     margin: auto 10px;
     padding: 5px;
@@ -194,3 +185,22 @@ button :hover {
     height: 190px;
     border: 2px  solid rgb(50, 205, 159);
 }
+.option{
+    grid-area: i8;
+    padding:0px;
+    margin:0px;
+    width: 606px;
+    height: 100px;
+
+}
+.action{
+    grid-area: i7;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 606px;
+    height: 100px;
+    border: 1px solid violet;}
+
