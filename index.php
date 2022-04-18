@@ -95,7 +95,8 @@ let nbLimit = 6;
 
 function handleFiles(files, valeur) {
     let nbFiles = files.length;
-    for (var i = 0; i < files.length; i++) {
+    for (var i = 0; i < nbFiles; i++) {
+        console.log("nb de fichier")
         var file = files[i];
         var imageType = /^image\//;
         if (!imageType.test(file.type)) {
@@ -106,32 +107,39 @@ function handleFiles(files, valeur) {
         img.classList.add("obj");
         img.file = file;
         if (files[i] && (i < nbLimit)) {
+            console.log("valeur de i:" + i)
             switch (i) {
                 case 0:
                     //image0
                     if (nbFiles == 1) {
                         switch (valeur) {
                             case 0:
+                                console.log("preview0:" + valeur);
                                 preview0.innerHTML = "";
                                 preview0.appendChild(img);
                                 break;
                             case 1:
+                                console.log("preview1:" + valeur);
                                 preview1.innerHTML = "";
                                 preview1.appendChild(img);
                                 break;
                             case 2:
+                                console.log("preview2: " + valeur);
                                 preview2.innerHTML = "";
                                 preview2.appendChild(img);
                                 break;
                             case 3:
+                                console.log("preview3: " + valeur);
                                 preview3.innerHTML = "";
                                 preview3.appendChild(img);
                                 break;
                             case 4:
+                                console.log("preview4: " + valeur);
                                 preview4.innerHTML = "";
                                 preview4.appendChild(img);
                                 break;
                             case 5:
+                                console.log("preview5: " + valeur);
                                 preview5.innerHTML = "";
                                 preview5.appendChild(img);
                                 break;
@@ -140,33 +148,35 @@ function handleFiles(files, valeur) {
                         preview0.innerHTML = "";
                         preview0.appendChild(img);
                         break;
-                    }
-                    case 1:
-                        //image1
-                        preview1.innerHTML = "";
-                        preview1.appendChild(img);
-                        break;
 
-                    case 2:
-                        //image2
-                        preview2.innerHTML = "";
-                        preview2.appendChild(img);
-                        break;
-                    case 3:
-                        //image3
-                        preview3.innerHTML = "";
-                        preview3.appendChild(img);
-                        break;
-                    case 4:
-                        //image4
-                        preview4.innerHTML = "";
-                        preview4.appendChild(img);
-                        break;
-                    case 5:
-                        //image4
-                        preview5.innerHTML = "";
-                        preview5.appendChild(img);
-                        break;
+                    }
+                    break;
+                case 1:
+                    //image1
+                    preview1.innerHTML = "";
+                    preview1.appendChild(img);
+                    break;
+
+                case 2:
+                    //image2
+                    preview2.innerHTML = "";
+                    preview2.appendChild(img);
+                    break;
+                case 3:
+                    //image3
+                    preview3.innerHTML = "";
+                    preview3.appendChild(img);
+                    break;
+                case 4:
+                    //image4
+                    preview4.innerHTML = "";
+                    preview4.appendChild(img);
+                    break;
+                case 5:
+                    //image4
+                    preview5.innerHTML = "";
+                    preview5.appendChild(img);
+                    break;
             }
             var reader = new FileReader();
             reader.onload = (function(aImg) {
@@ -178,155 +188,6 @@ function handleFiles(files, valeur) {
         }
     }
 }
-
-// function handleMultiFiles(files) {
-//     nbFile = files.length;
-//     console.log(nbFile);
-//     for (let j = 0; j < nbFile; j++) {
-//         if (j < nbLmit) {
-//             (j == 0) ? document.getElementById("preview0").innerHTML = ' I image0': null;
-//             (j == 1) ? document.getElementById("preview1").innerHTML = ' I image1': null;
-//             (j == 2) ? document.getElementById("preview2").innerHTML = ' I image2': null;
-//             (j == 3) ? document.getElementById("preview3").innerHTML = ' I image3': null;
-//             (j == 4) ? document.getElementById("preview4").innerHTML = ' I image4': null;
-//             (j == 5) ? document.getElementById("preview5").innerHTML = ' I image5': null;
-//             (j == 6) ? document.getElementById("preview6").innerHTML = ' I image6': null;
-//         }
-
-//         let img = document.createElement("img");
-//         img.classList.add("obj");
-//         img.file = files[j];
-//         console.log(img.file);
-//         if (files.length > 0) {
-//             (j == 0) ? document.getElementById("preview0").appendChild(img): null;
-//             (j == 1) ? document.getElementById("preview1").appendChild(img): null;
-//             (j == 2) ? document.getElementById("preview2").appendChild(img): null;
-//             (j == 3) ? document.getElementById("preview2").appendChild(img): null;
-//             (j == 4) ? document.getElementById("preview3").appendChild(img): null;
-//             (j == 5) ? document.getElementById("preview4").appendChild(img): null;
-//             (j == 6) ? document.getElementById("preview5").appendChild(img): null;
-//         }
-//         var reader = new FileReader();
-//         reader.onload = (function(aImg) {
-//             return function(e) {
-//                 aImg.src = e.target.result;
-//             };
-//         })(img);
-//         reader.readAsDataURL(file);
-//     }
-// }
-
-
-
-// function handleFiles(files, valeur) {
-//     var imageType = /^image\//;
-//     for (var i = 0; i < files.length; i++) {
-//         console.log("nb fichier : " + files.length);
-//         console.log("fichier" + i);
-//         var file = files[i];
-//         if (!imageType.test(file.type)) {
-//             alert("veuillez sélectionner une image");
-//         } else {
-//             if (i == 0) {
-//                 var img = document.createElement("img");
-//                 img.classList.add("obj");
-//                 img.file = files[i];
-//                 switch (valeur) {
-//                     case 1:
-//                         preview1.innerHTML = '';
-//                         if (files.length > 1) {
-//                             for (var j = 2; j <= files.length; j++) {
-//                                 console.log(j);
-//                                 if (j <= nbLmit) {
-//                                     console.log("initialise preview: " + j);
-//                                     (j == 2) ?? preview2.innerHTML = 'image2';
-//                                     (j == 3) ? preview3.innerHTML = 'image3': null;
-//                                     (j == 4) ? preview4.innerHTML = 'image4': null;
-//                                     (j == 5) ? preview5.innerHTML = 'image5': null;
-//                                     (j == 6) ? preview6.innerHTML = 'image6': null;
-//                                 }
-//                             }
-//                         }
-
-//                         break;
-//                     case 2:
-//                         preview2.innerHTML = 'unique image2';
-
-//                         break;
-//                     case 3:
-//                         preview3.innerHTML = 'unique image3';
-//                         break;
-//                     case 4:
-//                         preview4.innerHTML = 'unique image4';
-//                         break;
-//                     case 5:
-//                         preview5.innerHTML = 'unique image5';
-//                         break;
-//                     case 6:
-//                         preview6.innerHTML = 'unique image6';
-//                         break;
-
-//                 }
-//                 var img = document.createElement("img");
-//                 img.classList.add("obj");
-//                 img.file = files[i];
-//                 switch (valeur) {
-//                     case 0:
-//                         console.log("chargement de preview:" + valeur)
-//                         var img = document.createElement("img");
-//                         img.classList.add("obj");;
-//                         if (files.length > 1) {
-//                             for (var j = 1; j <= files.length; j++) {
-//                                 if (j <= nbLmit) {
-//                                     switch (j) {
-//                                         case 1:
-//                                             preview0.innerHTML = preview0.appendChild(img);
-//                                         case 2:
-//                                             preview1.innerHTML = preview1.appendChild(img);
-//                                             break;
-//                                         case 3:
-//                                             preview2.innerHTML = preview2.appendChild(img);
-//                                             break;
-//                                         case 4:
-//                                             preview1.innerHTML = preview1.appendChild(img);
-//                                             break;
-//                                         case 5:
-//                                             preview2.innerHTML = preview2.appendChild(img);
-//                                             break;
-//                                     }
-
-//                                 }
-//                             }
-//                         }
-//                         break;
-//                     case 2:
-//                         preview2.appendChild(img);
-//                         break;
-//                     case 3:
-//                         preview3.appendChild(img);
-//                         break;
-//                     case 4:
-//                         preview4.appendChild(img);
-//                         break;
-//                     case 5:
-//                         preview5.appendChild(img);
-//                         break;
-//                     case 6:
-//                         preview6.appendChild(img);
-//                         break;
-//                 }
-
-//                 var reader = new FileReader();
-//                 reader.onload = (function(aImg) {
-//                     return function(e) {
-//                         aImg.src = e.target.result;
-//                     };
-//                 })(img);
-//                 reader.readAsDataURL(file);
-//             }
-//         }
-//     }
-// }
 </script>
 
 </html>
