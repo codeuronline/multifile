@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <form action="POST" enctype="multipart/form-data">
+    <form action="test.php" method="POST" enctype="multipart/form-data">
         <div class="container">
             <div class="image0">
                 <label for="image7"><i class="bi bi-house-fill"></i></i>
@@ -29,7 +29,7 @@
             </div>
             <div class="image1">
                 <label for="image1">
-                    <input type="file" onChange="handleFiles(files,0)" name="image1" id="image1" multiple>
+                    <input type="file" onChange="handleFiles(files,0)" name="image[]" id="image1" multiple>
                     <span id="preview0">
                         <img width="400px" height="400px" src="vide.jpg" alt="">
                     </span>
@@ -37,35 +37,35 @@
             </div>
             <div class="image2">
                 <label for="image2">
-                    <input type="file" onChange="handleFiles(files,1)" name="image2" id="image2">
+                    <input type="file" onChange="handleFiles(files,1)" name="image[1]" id="image2">
                     <span id="preview1">
                         <img width=" 200px" height="200px" src="vide.jpg" alt="">
                     </span>
             </div>
             <div class="image3">
                 <label for="image3">
-                    <input type="file" onChange="handleFiles(files,2)" name="image3" id="image3">
+                    <input type="file" onChange="handleFiles(files,2)" name="image[2]" id="image3">
                     <span id="preview2">
                         <img width="200px" height="200px" src="vide.jpg" alt="">
                     </span>
             </div>
             <div class="image4">
                 <label for="image4">
-                    <input type="file" onChange="handleFiles(files,3)" name="image4" id="image4">
+                    <input type="file" onChange="handleFiles(files,3)" name="image[3]" id="image4">
                     <span id="preview3">
                         <img width="200px" height="200px" src="vide.jpg" alt="">
                     </span>
             </div>
             <div class="image5">
                 <label for="image5">
-                    <input type="file" onChange="handleFiles(files,4)" name="image5" id="image5">
+                    <input type="file" onChange="handleFiles(files,4)" name="image[4]" id="image5">
                     <span id="preview4">
                         <img width="200px" height="200px" src="vide.jpg" alt="">
                     </span>
             </div>
             <div class="image6">
                 <label for="image6">
-                    <input type="file" onChange="handleFiles(files,5)" name="image6" id="image6">
+                    <input type="file" onChange="handleFiles(files,5)" name="image[]" id="image6">
                     <span id="preview5">
                         <img width="200px" height="200px" src="vide.jpg" alt="">
                     </span>
